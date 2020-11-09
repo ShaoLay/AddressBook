@@ -3,7 +3,10 @@
 #define MAX 1000 // 最大人数
 
 
-void show_menu();
+// void show_menu();
+// void add_person(address_books *abs);
+// void show_person(address_books *abs);
+// int is_exist(address_books *abs, string name);
 
 using namespace std;
 
@@ -96,6 +99,15 @@ void show_person(address_books *abs){
     }
 }
 
+int is_exist(address_books *abs, string name){
+    for(int i = 0; i < abs->m_size; i++){
+        if(abs->person_array[i].m_name == name){
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main(){
     
     address_books abs;
@@ -115,7 +127,8 @@ int main(){
                 show_person(&abs);
                 break;
             case 3:
-                break;
+
+                break; 
             case 4:
                 break;
             case 5:
