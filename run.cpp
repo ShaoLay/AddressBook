@@ -81,6 +81,21 @@ void add_person(address_books *abs){
     system("clear");
 }
 
+void show_person(address_books *abs){
+    if(abs->m_size == 0){
+        cout << "没有任何联系人!" << endl;
+        system("clear");
+    }else{
+        for(int i = 0; i < abs->m_size; i++){
+            cout << "姓名: " << abs->person_array[i].m_name << endl;
+            cout << "性别: " << (abs->person_array[i].m_sex == 1 ? "男": "女") << endl;
+            cout << "年龄: " << abs->person_array[i].m_age << endl;
+            cout << "电话: " << abs->person_array[i].m_phone << endl;
+            cout << "住址: " << abs->person_array[i].m_addr << endl;
+        }
+    }
+}
+
 int main(){
     
     address_books abs;
@@ -89,7 +104,7 @@ int main(){
     int select = 0;
 
     while(true){
-        // 菜单功能
+        // 菜单显示功能
         show_menu();
         cin >> select;
         switch(select){
@@ -97,6 +112,7 @@ int main(){
                 add_person(&abs);
                 break;
             case 2:
+                show_person(&abs);
                 break;
             case 3:
                 break;
