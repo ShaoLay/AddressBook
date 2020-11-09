@@ -18,8 +18,32 @@ void show_menu(){
 }
 
 int main(){
+    
+    int select = 0;
 
-    show_menu();
+    while(true){
+        // 菜单功能
+         show_menu();
+        cin >> select;
+        switch(select){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 0:
+                cout << "欢迎下次使用!" << endl;
+                return 0;
+                break;
+        }
+    }
 
     return 0;
 }
