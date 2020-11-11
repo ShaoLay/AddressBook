@@ -183,6 +183,11 @@ void modify_person(address_books *abs){
     }
 }
 
+void clean_person(address_books *abs){
+    abs->m_size = 0;
+    cout << "通讯录已清空!" << endl;
+}
+
 int main(){
     
     address_books abs;
@@ -211,6 +216,7 @@ int main(){
                 modify_person(&abs);
                 break;
             case 6:
+                clean_person(&abs);
                 break;
             case 0:
                 cout << "欢迎下次使用!" << endl;
