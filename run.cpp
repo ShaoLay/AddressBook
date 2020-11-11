@@ -141,6 +141,48 @@ void find_person(address_books *abs){
     }
 }
 
+void modify_person(address_books *abs){
+    cout << "请输入你要修改的联系人: " << endl;
+    string name;
+    cin >> name;
+    int ret = is_exist(abs, name);
+    if(ret != -1) {
+        string name, phone, address;
+        int age = 0, sex = 0;
+        cout << "请输入姓名:" << endl;
+        cin >> name;
+        abs->person_array[ret].m_name = name;
+        cout << "请输入性别: " << endl;
+        cout << "1 -- 男" << endl;
+        cout << "2 -- 女" << endl;
+        while(true){
+            cin >> sex;
+            if(sex == 1 || sex == 2){
+                abs->person_array[ret].m_sex = sex;
+                break;
+            }
+            cout << "输入有误, 请重新输入!" << endl;
+        }
+        while(true){
+            cout << "请输入年龄: ";
+            cin >> age;
+            if(age >= 0 && age <= 120){       
+                abs->person_array[ret].m_age = age;
+                break;
+            }
+        }
+        cout << "请输入地址: ";
+        cin >> address;
+        abs->person_array[ret].m_addr = address;
+        cout << "请输入电话:";
+        cin >> phone;
+        abs->person_array[ret].m_phone = phone;
+        cout << "修改成功!" << endl;
+    }else{
+        cout << "查无此人!" << endl;
+    }
+}
+
 int main(){
     
     address_books abs;
@@ -166,6 +208,7 @@ int main(){
                 find_person(&abs);
                 break;
             case 5:
+                modify_person(&abs);
                 break;
             case 6:
                 break;
