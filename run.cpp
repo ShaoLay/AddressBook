@@ -108,6 +108,22 @@ int is_exist(address_books *abs, string name){
     return -1;
 }
 
+void delete_person(address_books *abs){
+    cout << "请输入您要删除的联系人: " << endl;
+    string name;
+    cin >> name;
+    int ret = is_exist(abs, name);
+    if(ret != -1){
+        for(int i = ret; i<abs->m_size; i++){
+            abs->person_array[i] = abs->person_array[i + 1];
+        }
+        abs->m_size--;
+        cout << "删除成功!" << endl;
+    }else{
+        cout << "查无此人!" << endl;
+    }
+}
+
 int main(){
     
     address_books abs;
@@ -127,7 +143,7 @@ int main(){
                 show_person(&abs);
                 break;
             case 3:
-
+                delete_person(&abs);
                 break; 
             case 4:
                 break;
