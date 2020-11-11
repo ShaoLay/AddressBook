@@ -124,6 +124,23 @@ void delete_person(address_books *abs){
     }
 }
 
+void find_person(address_books *abs){
+    cout << "请输入您要查询的联系人:    " << endl;
+    string name;
+    cin >> name;
+    int ret = is_exist(abs, name);
+    if(ret != -1){
+        cout << "姓名: " << abs->person_array[ret].m_name << "\t";
+        cout << "年龄: " << abs->person_array[ret].m_age << "\t";
+        cout << "性别: " << (abs->person_array[ret].m_sex == 1 ? "男":"女") << "\t";
+        cout << "电话: " << abs->person_array[ret].m_phone << "\t";
+        cout << "地址: " << abs->person_array[ret].m_addr << "\t";
+        cout << endl;
+    }else{
+        cout << "查无此人!" << endl;
+    }
+}
+
 int main(){
     
     address_books abs;
@@ -146,6 +163,7 @@ int main(){
                 delete_person(&abs);
                 break; 
             case 4:
+                find_person(&abs);
                 break;
             case 5:
                 break;
